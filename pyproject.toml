@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rotorpy-agilicious"
+version = "0.2.0"
+description = "Kingfisher-inspired RotorPy RL and centralized offline drone-show planning"
+requires-python = ">=3.11"
+dependencies = [
+  "rotorpy[learning]>=2.1.2,<3",
+  "numpy>=2.0",
+  "scipy>=1.14",
+  "matplotlib>=3.9",
+  "pillow>=11",
+]
+
+[project.scripts]
+rotorpy-agilicious = "rotorpy_agilicious.demo:main"
+aerial-show = "rotorpy_agilicious.swarm_show.cli:main"
+
+[tool.setuptools]
+packages = ["rotorpy_agilicious", "rotorpy_agilicious.swarm_show"]
+package-dir = {rotorpy_agilicious = "."}
